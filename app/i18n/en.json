@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "Dim Sum Order",
+    "subtitle": "Mobile Ordering System"
+  },
+  "menu": {
+    "title": "Menu",
+    "allCategories": "All",
+    "addToOrder": "Add to Order",
+    "unavailable": "Unavailable"
+  },
+  "cart": {
+    "title": "Your Order",
+    "empty": "Your order is empty",
+    "total": "Total",
+    "quantity": "Qty",
+    "remove": "Remove",
+    "checkout": "Place Order",
+    "confirmOrder": "Confirm Order"
+  },
+  "orders": {
+    "title": "My Orders",
+    "empty": "No orders yet",
+    "orderNumber": "Order",
+    "items": "Items",
+    "total": "Total",
+    "reorder": "Reorder",
+    "viewDetails": "View Details",
+    "orderPlaced": "Order Placed",
+    "confirmation": {
+      "title": "Order Confirmed!",
+      "thankYou": "Thank you for your order",
+      "orderNumber": "Order Number",
+      "viewOrders": "View My Orders"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back"
+  }
+}

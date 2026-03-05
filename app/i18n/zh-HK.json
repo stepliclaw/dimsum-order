@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "點心點餐",
+    "subtitle": "手機點餐系統"
+  },
+  "menu": {
+    "title": "餐單",
+    "allCategories": "全部",
+    "addToOrder": "加入訂單",
+    "unavailable": "暫不供應"
+  },
+  "cart": {
+    "title": "您的訂單",
+    "empty": "您的訂單是空的",
+    "total": "總計",
+    "quantity": "數量",
+    "remove": "移除",
+    "checkout": "下單",
+    "confirmOrder": "確認訂單"
+  },
+  "orders": {
+    "title": "我的訂單",
+    "empty": "暫無訂單",
+    "orderNumber": "訂單",
+    "items": "項目",
+    "total": "總計",
+    "reorder": "再次訂購",
+    "viewDetails": "查看詳情",
+    "orderPlaced": "已下單",
+    "confirmation": {
+      "title": "訂單已確認！",
+      "thankYou": "多謝您的訂單",
+      "orderNumber": "訂單編號",
+      "viewOrders": "查看我的訂單"
+    }
+  },
+  "common": {
+    "cancel": "取消",
+    "confirm": "確認",
+    "close": "關閉",
+    "back": "返回"
+  }
+}
