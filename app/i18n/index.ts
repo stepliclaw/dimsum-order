@@ -19,8 +19,8 @@ i18next
   )
   .init({
     supportedLngs: supportedLanguages,
-    fallbackLng: "en",
-    lng: "en",
+    fallbackLng: "zh",
+    lng: "zh",
     interpolation: {
       escapeValue: false,
     },
@@ -40,7 +40,7 @@ export function useAppTranslation() {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        const lang = parsed.state?.language || "en";
+        const lang = parsed.state?.language || "zh";
         i18next.changeLanguage(lang).then(() => {
           setReady(true);
         });
@@ -50,7 +50,7 @@ export function useAppTranslation() {
       }
     }
 
-    i18next.changeLanguage("en").then(() => {
+    i18next.changeLanguage("zh").then(() => {
       setReady(true);
     });
   }, []);
