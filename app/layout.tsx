@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Noto_Sans, Noto_Sans_TC } from 'next/font/google'
 import './globals.css'
+import { TextSizeProvider } from '@/components/ui/text-size-provider'
 
 const notoSans = Noto_Sans({
   subsets: ['latin'],
@@ -27,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} ${notoSansTC.variable} font-sans antialiased`}
       >
-        {children}
+        <TextSizeProvider>{children}</TextSizeProvider>
       </body>
     </html>
   )

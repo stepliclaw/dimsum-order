@@ -10,82 +10,81 @@ interface MenuItemListProps {
   item: MenuItem;
   quantity: number;
   onAdd: () => void;
-  onRemove: () => void;
+  onDecrease: () => void;
 }
 
 export function MenuItemList({
   item,
   quantity,
   onAdd,
-  onRemove,
+  onDecrease,
 }: MenuItemListProps) {
   const { language } = useAppTranslation();
 
   if (!item.available) {
     return (
       <div className="flex items-center gap-3 p-3 border rounded-md opacity-50 bg-muted/30">
-        <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden rounded bg-muted">
+        {/* Image - hidden on screens < 375px */}
+        <div className="hidden min-[375px]:block relative w-20 h-20 flex-shrink-0 overflow-hidden rounded bg-muted">
           <Image
             src={`/images/menu/${item.photo}`}
             alt={language === "zh" ? item.name.zh : item.name.en}
             fill
             className="object-cover grayscale"
-            sizes="64px"
+            sizes="80px"
           />
         </div>
         <div className="flex-1">
-          <h3 className="font-semibold text-sm">
+          <h3 className="font-semibold text-lg">
             {language === "zh" ? item.name.zh : item.name.en}
           </h3>
           <p className="text-muted-foreground text-xs">暫時缺貨</p>
         </div>
       </div>
-    );
+    )
   }
-
-  const priceDisplay =
-    item.priceType === "fixed" ? `$${item.price}` : `$${item.tier}`;
 
   return (
     <div className="flex items-center gap-3 p-3 border rounded-md hover:shadow-md transition-shadow bg-background">
-      <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden rounded bg-muted">
+      {/* Image - hidden on screens < 375px */}
+      <div className="hidden min-[375px]:block relative w-20 h-20 flex-shrink-0 overflow-hidden rounded bg-muted">
         <Image
           src={`/images/menu/${item.photo}`}
           alt={language === "zh" ? item.name.zh : item.name.en}
           fill
           className="object-cover"
-          sizes="64px"
+          sizes="80px"
         />
       </div>
 
-      <div className="flex-1 min-w-0">
-        <h3 className="font-semibold text-sm truncate">
+      <div className="flex-1 min-w-0 flex flex-col justify-center gap-1">
+        <h3 className="font-semibold text-lg truncate">
           {language === "zh" ? item.name.zh : item.name.en}
         </h3>
-        <p className="text-muted-foreground text-xs">
-          ${item.priceType === "fixed" ? item.price : item.tier}
+        <p className="font-bold text-base text-primary">
+          {item.priceType === "fixed" ? `$${item.price}` : item.tier}
         </p>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1">
         {quantity > 0 ? (
           <>
             <Button
               variant="outline"
+              onClick={onDecrease}
+              className="h-9 w-9 p-0 min-touch-target"
               size="icon"
-              onClick={onRemove}
-              className="h-8 w-8 rounded-full"
             >
               <span className="text-base font-bold">-</span>
             </Button>
-            <span className="w-6 text-center font-semibold text-sm">
+            <span className="w-8 text-center font-semibold text-base">
               {quantity}
             </span>
             <Button
               variant="outline"
-              size="icon"
               onClick={onAdd}
-              className="h-8 w-8 rounded-full"
+              className="h-9 w-9 p-0 min-touch-target"
+              size="icon"
             >
               <Plus className="h-4 w-4" />
             </Button>
@@ -93,17 +92,13 @@ export function MenuItemList({
         ) : (
           <Button
             variant="default"
-            size="sm"
             onClick={onAdd}
-            className="h-8 px-4 rounded-full"
+            className="h-9 w-9 p-0 min-touch-target"
+            size="icon"
           >
-            <Plus className="h-4 w-4 mr-1" />加
+            <Plus className="h-5 w-5" />
           </Button>
         )}
-      </div>
-
-      <div className="w-16 text-right">
-        <span className="font-bold text-primary">{priceDisplay}</span>
       </div>
     </div>
   );

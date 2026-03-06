@@ -24,6 +24,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.75rem;
+    --text-base-size: 1; /* Default medium size multiplier */
   }
 
   .dark {
@@ -55,7 +56,20 @@
   }
   
   html {
-    font-size: 18px; /* Base font size for elderly-friendly UI */
+    font-size: calc(18px * var(--text-base-size)); /* Base font size with text size multiplier */
+  }
+  
+  /* Text size data attributes */
+  html[data-text-size="small"] {
+    --text-base-size: 0.875;
+  }
+  
+  html[data-text-size="medium"] {
+    --text-base-size: 1;
+  }
+  
+  html[data-text-size="large"] {
+    --text-base-size: 1.25;
   }
   
   body {
@@ -73,10 +87,37 @@
     min-height: 44px; /* WCAG touch target size */
   }
 
+  /* Minimum touch target utility */
+  .min-touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
   /* High contrast focus states */
   *:focus-visible {
     outline: 3px solid hsl(var(--primary));
     outline-offset: 2px;
+  }
+
+  /* Fluid typography using clamp() */
+  .text-fluid-sm {
+    font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+  }
+  
+  .text-fluid-base {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  }
+  
+  .text-fluid-lg {
+    font-size: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  }
+  
+  .text-fluid-xl {
+    font-size: clamp(1.25rem, 1.1rem + 1vw, 2rem);
+  }
+  
+  .text-fluid-2xl {
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
   }
 
   /* Elderly-friendly text sizes */
@@ -94,6 +135,20 @@
   
   p {
     @apply text-base leading-relaxed;
+  }
+  
+  /* Momentum scrolling for mobile */
+  .scroll-momentum {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Touch action optimizations */
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+  
+  .touch-none {
+    touch-action: none;
   }
 }
 

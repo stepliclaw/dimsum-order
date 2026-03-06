@@ -3,6 +3,7 @@
 import type { MenuItem, CategoryDefinition } from '@/lib/types'
 import { MenuItemComponent } from './menu-item'
 import { CategoryFilter } from './category-filter'
+import { ResponsiveGrid } from '@/components/responsive/responsive-grid'
 
 interface MenuGridProps {
   items: MenuItem[]
@@ -36,13 +37,14 @@ export function MenuGrid({
           <p className="text-lg">No items available in this category</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           {filteredItems.map((item) => (
-            <MenuItemComponent
-              key={item.id}
-              item={item}
-              onAddToCart={onAddToCart}
-            />
+            <div key={item.id}>
+              <MenuItemComponent
+                item={item}
+                onAddToCart={onAddToCart}
+              />
+            </div>
           ))}
         </div>
       )}

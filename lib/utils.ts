@@ -64,3 +64,8 @@ export function getCategoryOrder(categoryId: string): number {
   }
   return order[categoryId] || 99
 }
+
+export function updateTextSizeCSS(size: 'small' | 'medium' | 'large'): void {
+  if (typeof document === 'undefined') return;
+  document.documentElement.setAttribute('data-text-size', size);
+}

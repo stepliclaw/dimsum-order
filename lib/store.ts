@@ -3,6 +3,14 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import type { MenuItem, Order } from "./types";
 import { generateOrderId, calculateUnitPrice } from "./utils";
 
+export type TextSize = "small" | "medium" | "large";
+
+export const TEXT_SIZE_SCALE: Record<TextSize, number> = {
+  small: 0.875,
+  medium: 1,
+  large: 1.25,
+};
+
 interface CartItem {
   itemId: string;
   quantity: number;
@@ -21,8 +29,9 @@ interface OrderStore {
   clearCart: () => void;
 
   // Actions - Orders
-  submitOrder: (pricing: any) => Order;
+  submitOrder: (pricing: any, menuItems: MenuItem[]) => Order;
   reorder: (order: Order) => void;
+  clearOrders: () => void;
 
   // Actions - Language
   setLanguage: (lang: "en" | "zh") => void;
@@ -89,22 +98,35 @@ export const useOrderStore = create<OrderStore>()(
       },
 
       // Order actions
-      submitOrder: (pricing: any) => {
+      submitOrder: (pricing: any, menuItems: MenuItem[]) => {
         const state = get();
         const orderId = generateOrderId();
         const submittedAt = new Date().toISOString();
 
-        // Convert cart items to order items
+        // Convert cart items to order items with actual menu data
         const orderItems = state.currentItems.map((cartItem) => {
-          // We need to get the item details from somewhere - for now we'll use a placeholder
-          // In real usage, this would come from the menu config
+          // Find the menu item by ID
+          const menuItem = menuItems.find((item) => item.id === cartItem.itemId);
+          
+          if (menuItem) {
+            return {
+              itemId: cartItem.itemId,
+              name: menuItem.name,
+              quantity: cartItem.quantity,
+              priceType: menuItem.priceType,
+              tier: menuItem.tier,
+              unitPrice: calculateUnitPrice(menuItem, pricing),
+            };
+          }
+          
+          // Fallback for unavailable items
           return {
             itemId: cartItem.itemId,
-            name: { en: "Item", zh: "點心" }, // Placeholder - would be populated from menu
+            name: { en: "Unavailable", zh: "暫無供應" },
             quantity: cartItem.quantity,
-            priceType: "tier" as const,
-            tier: "中點" as const,
-            unitPrice: pricing["中點"] || 24,
+            priceType: "fixed" as const,
+            price: 0,
+            unitPrice: 0,
           };
         });
 
@@ -137,6 +159,10 @@ export const useOrderStore = create<OrderStore>()(
         }));
 
         set({ currentItems: cartItems });
+      },
+
+      clearOrders: () => {
+        set({ orders: [] });
       },
 
       // Language actions
@@ -185,3 +211,76 @@ export const useCartStore = create<{
     })),
   clearCart: () => set({ currentItems: [] }),
 }));
+
+// Text size preference store
+interface TextSizeStore {
+  textSize: TextSize;
+  setTextSize: (size: TextSize) => void;
+  resetToDefault: () => void;
+  initializeFromSystem: () => void;
+}
+
+function getSystemFontSize(): number {
+  if (typeof window === "undefined") return 16;
+  const computed = window.getComputedStyle(document.documentElement);
+  const fontSize = computed.fontSize;
+  return parseFloat(fontSize) || 16;
+}
+
+function mapSystemToTextSize(fontSize: number): TextSize {
+  if (fontSize < 15) return "small";
+  if (fontSize > 17) return "large";
+  return "medium";
+}
+
+function getInitialTextSize(): TextSize {
+  if (typeof window === "undefined") return "medium";
+  try {
+    const stored = localStorage.getItem("dimsum-text-size");
+    if (stored && ["small", "medium", "large"].includes(stored)) {
+      return stored as TextSize;
+    }
+  } catch {
+    // localStorage unavailable
+  }
+  const systemSize = getSystemFontSize();
+  return mapSystemToTextSize(systemSize);
+}
+
+export const useTextSizeStore = create<TextSizeStore>()((set, get) => ({
+  textSize: getInitialTextSize(),
+
+  setTextSize: (size) => {
+    set({ textSize: size });
+    try {
+      localStorage.setItem("dimsum-text-size", size);
+    } catch {
+      // localStorage unavailable, state still works for session
+    }
+  },
+
+  resetToDefault: () => {
+    get().setTextSize("medium");
+  },
+
+  initializeFromSystem: () => {
+    const stored = localStorage.getItem("dimsum-text-size");
+    if (!stored) {
+      const systemSize = getSystemFontSize();
+      const mapped = mapSystemToTextSize(systemSize);
+      set({ textSize: mapped });
+    }
+  },
+}));
+
+// Cross-tab synchronization
+if (typeof window !== "undefined") {
+  window.addEventListener("storage", (event) => {
+    if (event.key === "dimsum-text-size" && event.newValue) {
+      const newSize = event.newValue as TextSize;
+      if (["small", "medium", "large"].includes(newSize)) {
+        useTextSizeStore.setState({ textSize: newSize });
+      }
+    }
+  });
+}

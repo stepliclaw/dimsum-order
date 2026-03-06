@@ -3,43 +3,64 @@
   "categories": [
     {
       "id": "steamed",
-      "name": { "en": "Steamed", "zh": "蒸點" },
+      "name": {
+        "en": "Steamed",
+        "zh": "蒸點"
+      },
       "icon": "soup",
       "order": 1
     },
     {
       "id": "rice_roll",
-      "name": { "en": "Rice Rolls", "zh": "腸粉" },
+      "name": {
+        "en": "Rice Rolls",
+        "zh": "腸粉"
+      },
       "icon": "wheat",
       "order": 2
     },
     {
       "id": "buns",
-      "name": { "en": "Buns", "zh": "包點" },
+      "name": {
+        "en": "Buns",
+        "zh": "包點"
+      },
       "icon": "circle",
       "order": 3
     },
     {
       "id": "fried",
-      "name": { "en": "Fried", "zh": "煎炸" },
+      "name": {
+        "en": "Fried",
+        "zh": "煎炸"
+      },
       "icon": "flame",
       "order": 4
     },
     {
       "id": "rice_noodle",
-      "name": { "en": "Rice & Noodle", "zh": "粥粉麵飯" },
+      "name": {
+        "en": "Rice & Noodle",
+        "zh": "粥粉麵飯"
+      },
       "icon": "utensils",
       "order": 5
     },
     {
       "id": "dessert",
-      "name": { "en": "Dessert", "zh": "甜品" },
+      "name": {
+        "en": "Dessert",
+        "zh": "甜品"
+      },
       "icon": "cake",
       "order": 6
     },
     {
       "id": "other",
-      "name": { "en": "Other", "zh": "其他" },
+      "name": {
+        "en": "Other",
+        "zh": "其他"
+      },
       "icon": "more-horizontal",
       "order": 7
     }
@@ -52,247 +73,328 @@
   },
   "items": [
     {
-"id":"har-gow",
-"name":{"en":"Shrimp Dumplings","zh":"蝦餃"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"中點",
-"photo":"har-gow.png",
-"available":true
-},
-{
-"id":"siu-mai",
-"name":{"en":"Pork Siu Mai","zh":"燒賣"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"中點",
-"photo":"siu-mai.png",
-"available":true
-},
-{
-"id":"pork-ribs",
-"name":{"en":"Steamed Pork Ribs","zh":"排骨"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"中點",
-"photo":"pork-ribs.png",
-"available":true
-},
-{
-"id":"chicken-feet",
-"name":{"en":"Chicken Feet","zh":"鳳爪"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"中點",
-"photo":"chicken-feet.png",
-"available":true
-},
-{
-"id":"beef-ball",
-"name":{"en":"Beef Ball","zh":"牛肉球"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"中點",
-"photo":"beef-ball.png",
-"available":true
-},
-{
-"id":"cheung-fun",
-"name":{"en":"Rice Roll","zh":"腸粉"},
-"category":"rice_roll",
-"priceType":"tier",
-"tier":"中點",
-"photo":"cheung-fun.png",
-"available":true
-},
-{
-"id":"xiao-long-bao",
-"name":{"en":"Soup Dumpling","zh":"小籠包"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"中點",
-"photo":"xiao-long-bao.png",
-"available":true
-},
-{
-"id":"lo-mai-gai",
-"name":{"en":"Sticky Rice Chicken","zh":"糯米雞"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"大點",
-"photo":"lo-mai-gai.png",
-"available":true
-},
-{
-"id":"ma-lai-go",
-"name":{"en":"Malay Sponge Cake","zh":"馬拉糕"},
-"category":"steamed",
-"priceType":"tier",
-"tier":"中點",
-"photo":"ma-lai-go.png",
-"available":true
-},
-{
-"id":"custard-bun",
-"name":{"en":"Custard Bun","zh":"奶黃包"},
-"category":"buns",
-"priceType":"tier",
-"tier":"中點",
-"photo":"custard-bun.png",
-"available":true
-},
-{
-"id":"bbq-pork-bun",
-"name":{"en":"BBQ Pork Bun","zh":"叉燒包"},
-"category":"buns",
-"priceType":"tier",
-"tier":"中點",
-"photo":"bbq-pork-bun.png",
-"available":true
-},
-{
-"id":"spring-roll",
-"name":{"en":"Spring Roll","zh":"春卷"},
-"category":"fried",
-"priceType":"tier",
-"tier":"中點",
-"photo":"spring-roll.png",
-"available":true
-},
-{
-"id":"taro-dumpling",
-"name":{"en":"Taro Dumpling","zh":"炸芋角"},
-"category":"fried",
-"priceType":"tier",
-"tier":"中點",
-"photo":"taro-dumpling.png",
-"available":true
-},
-{
-"id":"turnip-cake",
-"name":{"en":"Pan Fried Turnip Cake","zh":"煎蘿蔔糕"},
-"category":"fried",
-"priceType":"tier",
-"tier":"中點",
-"photo":"turnip-cake.png",
-"available":true
-},
-{
-"id":"shrimp-rice-roll",
-"name":{"en":"Shrimp Rice Roll","zh":"蝦腸粉"},
-"category":"rice_roll",
-"priceType":"tier",
-"tier":"中點",
-"photo":"shrimp-rice-roll.png",
-"available":true
-},
-{
-"id":"bbq-rice-roll",
-"name":{"en":"BBQ Pork Rice Roll","zh":"叉燒腸粉"},
-"category":"rice_roll",
-"priceType":"tier",
-"tier":"中點",
-"photo":"bbq-rice-roll.png",
-"available":true
-},
-{
-"id":"beef-rice-roll",
-"name":{"en":"Beef Rice Roll","zh":"牛肉腸粉"},
-"category":"rice_roll",
-"priceType":"tier",
-"tier":"中點",
-"photo":"beef-rice-roll.png",
-"available":true
-},
-{
-"id":"plain-rice-roll",
-"name":{"en":"Plain Rice Roll","zh":"齋腸粉"},
-"category":"rice_roll",
-"priceType":"tier",
-"tier":"中點",
-"photo":"plain-rice-roll.png",
-"available":true
-},
-{
-"id":"lotus-bun",
-"name":{"en":"Lotus Seed Bun","zh":"蓮蓉包"},
-"category":"buns",
-"priceType":"tier",
-"tier":"中點",
-"photo":"lotus-bun.png",
-"available":true
-},
-{
-"id":"piggy-bun",
-"name":{"en":"Piggy Bun","zh":"豬仔包"},
-"category":"buns",
-"priceType":"tier",
-"tier":"中點",
-"photo":"piggy-bun.png",
-"available":true
-},
-{
-"id":"pork-congee",
-"name":{"en":"Pork Century Egg Congee","zh":"皮蛋瘦肉粥"},
-"category":"rice_noodle",
-"priceType":"tier",
-"tier":"大點",
-"photo":"pork-congee.png",
-"available":true
-},
-{
-"id":"mixed-congee",
-"name":{"en":"Mixed Pork Congee","zh":"及第粥"},
-"category":"rice_noodle",
-"priceType":"tier",
-"tier":"大點",
-"photo":"mixed-congee.png",
-"available":true
-},
-{
-"id":"mango-pomelo-sago",
-"name":{"en":"Mango Pomelo Sago","zh":"楊枝甘露"},
-"category":"dessert",
-"priceType":"tier",
-"tier":"特點",
-"photo":"mango-pomelo-sago.png",
-"available":true
-},
-{
-"id":"sesame-soup",
-"name":{"en":"Black Sesame Soup","zh":"芝麻糊"},
-"category":"dessert",
-"priceType":"tier",
-"tier":"特點",
-"photo":"sesame-soup.png",
-"available":true
-},
-{
-"id":"almond-soup",
-"name":{"en":"Almond Soup","zh":"杏仁露"},
-"category":"dessert",
-"priceType":"tier",
-"tier":"特點",
-"photo":"almond-soup.png",
-"available":true
-},
-{
-"id":"water-chestnut-cake",
-"name":{"en":"Water Chestnut Cake","zh":"馬蹄糕"},
-"category":"dessert",
-"priceType":"tier",
-"tier":"特點",
-"photo":"water-chestnut-cake.png",
-"available":true
-},
-{
-"id":"mango-pudding",
-"name":{"en":"Mango Pudding","zh":"芒果布甸"},
-"category":"dessert",
-"priceType":"tier",
-"tier":"特點",
-"photo":"mango-pudding.png",
-"available":true
-}
+      "id": "har-gow",
+      "name": {
+        "en": "Shrimp Dumplings",
+        "zh": "蝦餃"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "har-gow.png",
+      "available": true
+    },
+    {
+      "id": "siu-mai",
+      "name": {
+        "en": "Pork Siu Mai",
+        "zh": "燒賣"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "siu-mai.png",
+      "available": true
+    },
+    {
+      "id": "pork-ribs",
+      "name": {
+        "en": "Steamed Pork Ribs",
+        "zh": "排骨"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "pork-ribs.png",
+      "available": true
+    },
+    {
+      "id": "chicken-feet",
+      "name": {
+        "en": "Chicken Feet",
+        "zh": "鳳爪"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "chicken-feet.png",
+      "available": true
+    },
+    {
+      "id": "beef-ball",
+      "name": {
+        "en": "Beef Ball",
+        "zh": "牛肉球"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "beef-ball.png",
+      "available": true
+    },
+    {
+      "id": "xiao-long-bao",
+      "name": {
+        "en": "Soup Dumpling",
+        "zh": "小籠包"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "xiao-long-bao.png",
+      "available": true
+    },
+    {
+      "id": "lo-mai-gai",
+      "name": {
+        "en": "Sticky Rice Chicken",
+        "zh": "糯米雞"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "大點",
+      "photo": "lo-mai-gai.png",
+      "available": true
+    },
+    {
+      "id": "ma-lai-go",
+      "name": {
+        "en": "Malay Sponge Cake",
+        "zh": "馬拉糕"
+      },
+      "category": "steamed",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "ma-lai-go.png",
+      "available": true
+    },
+    {
+      "id": "cheung-fun",
+      "name": {
+        "en": "Rice Roll",
+        "zh": "腸粉"
+      },
+      "category": "rice_roll",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "cheung-fun.png",
+      "available": true
+    },
+    {
+      "id": "shrimp-rice-roll",
+      "name": {
+        "en": "Shrimp Rice Roll",
+        "zh": "蝦腸粉"
+      },
+      "category": "rice_roll",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "shrimp-rice-roll.png",
+      "available": true
+    },
+    {
+      "id": "bbq-rice-roll",
+      "name": {
+        "en": "BBQ Pork Rice Roll",
+        "zh": "叉燒腸粉"
+      },
+      "category": "rice_roll",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "bbq-rice-roll.png",
+      "available": true
+    },
+    {
+      "id": "beef-rice-roll",
+      "name": {
+        "en": "Beef Rice Roll",
+        "zh": "牛肉腸粉"
+      },
+      "category": "rice_roll",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "beef-rice-roll.png",
+      "available": true
+    },
+    {
+      "id": "plain-rice-roll",
+      "name": {
+        "en": "Plain Rice Roll",
+        "zh": "齋腸粉"
+      },
+      "category": "rice_roll",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "plain-rice-roll.png",
+      "available": true
+    },
+    {
+      "id": "custard-bun",
+      "name": {
+        "en": "Custard Bun",
+        "zh": "奶黃包"
+      },
+      "category": "buns",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "custard-bun.png",
+      "available": true
+    },
+    {
+      "id": "bbq-pork-bun",
+      "name": {
+        "en": "BBQ Pork Bun",
+        "zh": "叉燒包"
+      },
+      "category": "buns",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "bbq-pork-bun.png",
+      "available": true
+    },
+    {
+      "id": "lotus-bun",
+      "name": {
+        "en": "Lotus Seed Bun",
+        "zh": "蓮蓉包"
+      },
+      "category": "buns",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "lotus-bun.png",
+      "available": true
+    },
+    {
+      "id": "piggy-bun",
+      "name": {
+        "en": "Piggy Bun",
+        "zh": "豬仔包"
+      },
+      "category": "buns",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "piggy-bun.png",
+      "available": true
+    },
+    {
+      "id": "spring-roll",
+      "name": {
+        "en": "Spring Roll",
+        "zh": "春卷"
+      },
+      "category": "fried",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "spring-roll.png",
+      "available": true
+    },
+    {
+      "id": "taro-dumpling",
+      "name": {
+        "en": "Taro Dumpling",
+        "zh": "炸芋角"
+      },
+      "category": "fried",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "taro-dumpling.png",
+      "available": true
+    },
+    {
+      "id": "turnip-cake",
+      "name": {
+        "en": "Pan Fried Turnip Cake",
+        "zh": "煎蘿蔔糕"
+      },
+      "category": "fried",
+      "priceType": "tier",
+      "tier": "中點",
+      "photo": "turnip-cake.png",
+      "available": true
+    },
+    {
+      "id": "pork-congee",
+      "name": {
+        "en": "Pork Century Egg Congee",
+        "zh": "皮蛋瘦肉粥"
+      },
+      "category": "rice_noodle",
+      "priceType": "tier",
+      "tier": "大點",
+      "photo": "pork-congee.png",
+      "available": true
+    },
+    {
+      "id": "mixed-congee",
+      "name": {
+        "en": "Mixed Pork Congee",
+        "zh": "及第粥"
+      },
+      "category": "rice_noodle",
+      "priceType": "tier",
+      "tier": "大點",
+      "photo": "mixed-congee.png",
+      "available": true
+    },
+    {
+      "id": "mango-pomelo-sago",
+      "name": {
+        "en": "Mango Pomelo Sago",
+        "zh": "楊枝甘露"
+      },
+      "category": "dessert",
+      "priceType": "tier",
+      "tier": "特點",
+      "photo": "mango-pomelo-sago.png",
+      "available": true
+    },
+    {
+      "id": "sesame-soup",
+      "name": {
+        "en": "Black Sesame Soup",
+        "zh": "芝麻糊"
+      },
+      "category": "dessert",
+      "priceType": "tier",
+      "tier": "特點",
+      "photo": "sesame-soup.png",
+      "available": true
+    },
+    {
+      "id": "almond-soup",
+      "name": {
+        "en": "Almond Soup",
+        "zh": "杏仁露"
+      },
+      "category": "dessert",
+      "priceType": "tier",
+      "tier": "特點",
+      "photo": "almond-soup.png",
+      "available": true
+    },
+    {
+      "id": "water-chestnut-cake",
+      "name": {
+        "en": "Water Chestnut Cake",
+        "zh": "馬蹄糕"
+      },
+      "category": "dessert",
+      "priceType": "tier",
+      "tier": "特點",
+      "photo": "water-chestnut-cake.png",
+      "available": true
+    },
+    {
+      "id": "mango-pudding",
+      "name": {
+        "en": "Mango Pudding",
+        "zh": "芒果布甸"
+      },
+      "category": "dessert",
+      "priceType": "tier",
+      "tier": "特點",
+      "photo": "mango-pudding.png",
+      "available": true
+    }
   ]
 }
