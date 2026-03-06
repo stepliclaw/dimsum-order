@@ -1,96 +1,102 @@
-'use client'
+"use client";
 
-import { useRouter } from 'next/navigation'
-import { useOrderStore } from '@/lib/store'
-import { useAppTranslation } from '@/app/i18n'
-import { Button } from '@/components/ui/button'
-import { X } from 'lucide-react'
+import { useRouter } from "next/navigation";
+import { useOrderStore } from "@/lib/store";
+import { useAppTranslation } from "@/app/i18n";
+import { Button } from "@/components/ui/button";
+import { X, CheckCircle, Utensils } from "lucide-react";
 
 interface CheckoutModalProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
-  const router = useRouter()
-  const { language } = useAppTranslation()
-  const orders = useOrderStore((state) => state.orders)
-  const clearOrders = useOrderStore((state) => state.clearOrders)
+  const router = useRouter();
+  const { language } = useAppTranslation();
+  const orders = useOrderStore((state) => state.orders);
+  const clearOrders = useOrderStore((state) => state.clearOrders);
 
   // Calculate grand total
-  const grandTotal = orders.reduce((sum, order) => sum + order.totalAmount, 0)
+  const grandTotal = orders.reduce((sum, order) => sum + order.totalAmount, 0);
 
   const handleStartOver = () => {
-    clearOrders()
-    router.push('/')
-  }
+    clearOrders();
+    router.push("/");
+  };
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-      <div 
-        className="bg-background rounded-lg shadow-lg max-w-md w-full p-6 relative"
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+      <div
+        className="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-10 relative border-4 border-primary/30"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
+        {/* Close Button - Enhanced */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+          className="absolute top-6 right-6 text-muted-foreground hover:text-primary transition-colors"
           aria-label="Close modal"
         >
-          <X className="h-5 w-5" />
+          <X className="h-10 w-10" />
         </button>
 
-        {/* Welcome Message */}
+        {/* Success Icon - Enhanced */}
+        <div className="flex justify-center mb-6">
+          <div className="h-32 w-32 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-2xl border-4 border-white/50">
+            <CheckCircle className="h-20 w-20 text-white drop-shadow-lg" />
+          </div>
+        </div>
+
+        {/* Welcome Message - Enhanced */}
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2">
-            {language === 'zh' ? '歡迎光臨' : 'Welcome'}
+          <h2 className="text-4xl font-black mb-4 text-primary">
+            {language === "zh" ? "多謝光臨" : "Thank You"}
           </h2>
-          <p className="text-muted-foreground text-sm">
-            {language === 'zh' 
-              ? '希望你有一次愉快的體驗' 
-              : 'Hope you have a pleasant experience'}
+          <p className="text-xl text-muted-foreground font-medium">
+            {language === "zh"
+              ? "希望你有一次愉快的體驗"
+              : "Hope you have a pleasant experience"}
           </p>
         </div>
 
-        {/* Payment Instruction */}
-        <div className="text-center mb-6 p-4 bg-muted rounded-lg">
-          <p className="text-base font-medium">
-            {language === 'zh' 
-              ? '請前往收銀處付款' 
-              : 'Please proceed to cashier for payment'}
+        {/* Payment Instruction - Enhanced */}
+        <div className="text-center mb-6 p-6 bg-primary/15 rounded-2xl border-4 border-primary/40">
+          <Utensils className="h-12 w-12 mx-auto mb-4 text-primary" />
+          <p className="text-2xl font-bold text-primary">
+            {language === "zh"
+              ? "請前往收銀處付款"
+              : "Please proceed to cashier for payment"}
           </p>
         </div>
 
-        {/* Grand Total */}
-        <div className="text-center mb-6">
-          <p className="text-sm text-muted-foreground mb-1">
-            {language === 'zh' ? '總數' : 'Grand Total'}
+        {/* Grand Total - Enhanced */}
+        <div className="text-center mb-6 p-6 bg-primary/10 rounded-2xl border-2 border-primary/30">
+          <p className="text-xl text-muted-foreground mb-3 font-bold">
+            {language === "zh" ? "總數" : "Grand Total"}
           </p>
-          <p className="text-3xl font-bold text-primary">
+          <p className="text-6xl font-black text-primary drop-shadow-sm">
             HKD ${grandTotal.toFixed(2)}
           </p>
         </div>
 
-        {/* Start Over Button */}
-        <div className="flex flex-col gap-3">
+        {/* Start Over Button - Enhanced */}
+        <div className="flex flex-col gap-4">
           <Button
             onClick={handleStartOver}
             variant="outline"
-            className="w-full h-12 text-base"
-            size="lg"
+            className="w-full h-20 text-2xl shadow-xl border-4"
+            size="xl"
           >
-            {language === 'zh' ? '重新開始' : 'Start Over'}
+            <Utensils className="mr-3 h-10 w-10" />
+            {language === "zh" ? "重新開始" : "Start Over"}
           </Button>
         </div>
       </div>
 
       {/* Backdrop - click to close */}
-      <div 
-        className="fixed inset-0 -z-10" 
-        onClick={onClose}
-      />
+      <div className="fixed inset-0 -z-10" onClick={onClose} />
     </div>
-  )
+  );
 }

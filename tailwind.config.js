@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -51,6 +51,17 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Category colors for menu items
+        category: {
+          steamed: "hsl(var(--category-steamed))",
+          "rice-rolls": "hsl(var(--category-rice-rolls))",
+          buns: "hsl(var(--category-buns))",
+          fried: "hsl(var(--category-fried))",
+          noodle: "hsl(var(--category-noodle))",
+          dessert: "hsl(var(--category-dessert))",
+          other: "hsl(var(--category-other))",
+          success: "hsl(var(--category-success))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -72,12 +83,22 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontSize: {
-        'base': '1.125rem', // 18px - elderly friendly
-        'lg': '1.25rem',    // 20px
-        'xl': '1.5rem',     // 24px
-        '2xl': '1.875rem',  // 30px
+        base: "1.125rem", // 18px - elderly friendly
+        lg: "1.25rem", // 20px
+        xl: "1.5rem", // 24px
+        "2xl": "1.875rem", // 30px
+        "3xl": "2rem", // 32px - large headings
+        "4xl": "2.25rem", // 36px - page titles
+      },
+      spacing: {
+        18: "4.5rem", // 72px - enhanced spacing
+        20: "5rem", // 80px - section spacing
+        24: "6rem", // 96px - large section gaps
+      },
+      borderWidth: {
+        3: "3px", // For focus states
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
